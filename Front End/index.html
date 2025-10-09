@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toko Kue Rejaki</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">Toko Kue Rejaki 🍰</div>
+    <div class="kategori">
+      <button class="kategori-btn">Kategori Kue ▾</button>
+      <div class="dropdown">
+        <a href="manis.html">Manis</a>
+        <a href="asin.html">Asin</a>
+        <a href="kering.html">Kering</a>
+        <a href="basah.html">Basah</a>
+      </div>
+    </div>
+
+    <div class="search-box">
+      <input type="text" placeholder="Cari di toko kue">
+      <button class="search-btn">🔍</button>
+    </div>
+
+    <div class="icons">
+      <a href="#" id="cart-icon" class="cart-link">
+        <i class="cart">🛒</i>
+      </a>
+    </div>
+
+  <div class="cart-popup" id="cart-popup">
+    <h3>Keranjang Belanja</h3>
+    <div class="cart-items">
+      <div class="cart-item">
+        <img src="../Assets/Image/Kue_cokelat.png" alt="Kue Cokelat">
+        <div class="item-info">
+          <h4>Kue Cokelat</h4>
+          <p>Rp 25.000</p>
+          <div class="item-controls">
+            <button class="qty-btn minus">-</button>
+            <span class="qty">1</span>
+            <button class="qty-btn plus">+</button>
+            <button class="remove-btn">🗑️</button>
+          </div>
+        </div>
+      </div>
+      <div class="cart-item">
+        <img src="../Assets/Image/Cheesecake.png" alt="Kue Keju">
+        <div class="item-info">
+          <h4>Kue Keju</h4>
+          <p>Rp 22.000</p>
+          <div class="item-controls">
+            <button class="qty-btn minus">−</button>
+            <span class="qty">2</span>
+            <button class="qty-btn plus">+</button>
+            <button class="remove-btn">🗑️</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cart-total">
+      <span>Total:</span>
+      <strong>Rp 69.000</strong>
+    </div>
+    <button class="checkout-btn">Checkout</button>
+  </div>
+
+
+    <div class="auth-buttons">
+      <a href="login.html" class="btn login">Masuk</a>
+      <a href="signup.html" class="btn register">Daftar</a>
+    </div>
+  </header>
+
+  <section class="banner">
+    <div class="banner-content">
+      <h1>Selamat Datang di Toko Kue Rejaki</h1>
+      <p>
+        Kami adalah toko kue lokal yang menghadirkan cita rasa manis, gurih, dan lembut dalam setiap gigitan.  
+        Kue kami dibuat dari bahan-bahan pilihan dengan sentuhan kasih sayang.  
+        Nikmati berbagai varian kue tradisional dan modern yang siap memanjakan lidah Anda!
+      </p>
+      <button class="btn-banner">Lihat Produk Kami</button>
+    </div>
+  </section>
+
+  <section class="etalase">
+    <h2>Etalase Produk Kami</h2>
+    <div class="produk-container">
+
+      <div class="produk-card">
+        <img src="../Assets/image/Kue_cokelat.png" alt="Kue Lezat">
+        <h3>Kue Cokelat</h3>
+        <p>Lembut, manis, dan kaya cokelat asli.</p>
+        <button>Tambah ke Keranjang</button>
+      </div>
+
+      <div class="produk-card">
+        <img src="../Assets/image/Cheesecake.png" alt="Kue Keju">
+        <h3>Kue Keju</h3>
+        <p>Rasa gurih keju yang lumer di mulut.</p>
+        <button>Tambah ke Keranjang</button>
+      </div>
+
+      <div class="produk-card">
+        <img src="../Assets/image/Kue_strawberry.png" alt="Kue Stroberi">
+        <h3>Kue Stroberi</h3>
+        <p>Perpaduan segar stroberi dan krim lembut.</p>
+        <button>Tambah ke Keranjang</button>
+      </div>
+
+      <div class="produk-card">
+        <img src="../Assets/image/Cupcake.jpg" alt="Kue Tart Mini">
+        <h3>Cupcake</h3>
+        <p>Manis, lembut, dan cocok untuk hadiah.</p>
+        <button>Tambah ke Keranjang</button>
+      </div>
+
+    </div>
+  </section>
+
+<script>
+  const cartIcon = document.getElementById('cart-icon');
+  const cartPopup = document.getElementById('cart-popup');
+
+  cartIcon.addEventListener('click', (e) => {
+    e.preventDefault();
+    cartPopup.style.display = cartPopup.style.display === 'block' ? 'none' : 'block';
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!cartPopup.contains(e.target) && !cartIcon.contains(e.target)) {
+      cartPopup.style.display = 'none';
+    }
+  });
+</script>
+</body>
+</html>
