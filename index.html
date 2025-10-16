@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Kue Rejaki</title>
+    <link rel="stylesheet" href="Front End/style.css">
+    <style>
+        :root {
+            font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+        }
+        html, body {
+            height: 100%;
+        }
+        body {
+            background: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgb(255, 164, 164) 70%);
+            color: rgb(0, 0, 0);
+            margin: 0;
+            line-height: 1.4;
+            overflow-y: scroll;
+        }
+        header {
+            position: sticky;
+            z-index: 100;
+            backdrop-filter: blur(6px);
+            background: linear-gradient(180deg, rgba(255, 151, 151, 0.55), rgba(255, 255, 255, 0.35));
+            border-bottom: 1px solid rgb(122, 122, 122);
+        }
+        .nav {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 14px 20px;
+        }
+        .brand {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .logo {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgb(170, 53, 53), rgb(247, 109, 109));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 20px rgba(46, 46, 46, 0.5);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .logo:hover {
+            transform: scale(1.08);
+        }
+        .logo-kue {
+            font-family: 'Parisienne';
+            font-size: 12px;
+            color: #000000;
+        }
+        .brand h1 {
+            margin: 0;
+            font-size: 18px;
+            letter-spacing: 0.6px;
+        }
+        .brand p {
+            margin: 0;
+            font-size: 12px;
+        }
+        .nav-a {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .nav-links {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            transition: 0.3s ease;
+            padding: 6px 10px;
+            border-radius: 8px;
+            color: rgb(71, 36, 36);
+        }
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            color: #000;
+        }
+        .nav-links .login {
+            background: linear-gradient(90deg, #ff8ea5, #e46d7c);
+            color: white;
+            padding: 6px 14px;
+        }
+
+        .nav-links .signup {
+            background: linear-gradient(90deg, #ff8193, #c05b6a);
+            color: white;
+            padding: 6px 14px;
+        }
+        .search {
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(90deg, #ff8193, #ffc6ce);
+            border-radius: 50px;
+            padding: 5px 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .search input {
+            border: none;
+            background: transparent;
+            outline: none;
+            padding: 8px 10px;
+            font-size: 14px;
+            width: 180px;
+            color: #000000;
+        }
+        .search input::placeholder {
+            color: rgba(0, 0, 0, 0.726);
+        }
+        .search:focus-within {
+            box-shadow: 0 0 10px rgba(255, 182, 193, 0.8);
+            background: #fff;
+        }
+        .button-cart {
+            position: relative;
+            background: linear-gradient(145deg, #ff8084, #ffdfe0);
+            border-radius: 50%;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+        }
+        .button-cart:hover {
+            transform: translateY(-3px) scale(1.2);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
+        }
+        .button-cart i {
+            color: white;
+            font-size: 20px;
+        }
+        .button-cart .icon {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            background: #ff3b3b;
+            color: white;
+            font-size: 12px;
+            border-radius: 50%;
+            padding: 2px 5px;
+            font-weight: bold;
+        }
+        .intro {
+            max-width: 1200px;
+            margin: 36px auto;
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 28px;
+            padding: 0 20px;
+            align-items: center;
+        }
+        .intro-left {
+            background: linear-gradient(180deg, rgb(170, 53, 53, 0.02), rgb(247, 109, 109, 0.01));
+            padding: 28px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(46, 46, 46, 0.5);
+        }
+        .intro h2 {
+            font-size: 36px;
+            margin: 12px 0 6px;
+            color: rgb(44, 44, 44);
+        }
+        .intro p {
+            margin: 0 0 16px;
+        }
+        .row2 {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .primary {
+            background: linear-gradient(90deg, #f58595, #c05b6a);
+            padding: 12px 18px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        .primary:hover{
+            background-color: #a94444;
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .intro-right {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cake-card {
+            width: 380px;
+            height: 300px;
+            border-radius: 18px;
+            padding: 22px;
+            background: linear-gradient(180deg, rgb(170, 53, 53, 0.02), rgb(247, 109, 109, 0.01));
+            box-shadow: 0 10px 40px rgba(46, 46, 46, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .cake-ill {
+            width: 220px;
+            height: 140px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #fff0f6, #fff6e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: 700;
+            color: #2b2b2b;
+        }
+        .categories {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .categories h2 {
+            font-size: 28px;
+            color: #000000;
+            margin-bottom: 28px;
+        }
+
+        .category-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .category-card {
+            background: linear-gradient(135deg, #ffe4e9, #ffb3b3);
+            border-radius: 16px;
+            padding: 18px 28px;
+            text-decoration: none;
+            color: #312222;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-6px) scale(1.05);
+            background: linear-gradient(135deg, #ffc4cc, #ffb3b3);
+            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.25);
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <div class="brand">
+                <div class="logo">
+                    <div class="logo-kue"><b>REJAKI</b></div>
+                </div>
+                <div>
+                    <h1>Toko Kue Rejaki</h1>
+                    <p>Rasa Istimewa, tampilan lucu dan mewah 🍰</p>
+                </div>
+            </div>
+
+            <div class="nav-a">
+                <nav class="nav-links">
+                    <a href="">Menu</a>
+                    <a href="">Store</a>
+                    <a href="Front End/login.php" class="login">Masuk</a>
+                    <a href="Front End/signup.php" class="signup">Daftar</a>
+                </nav>
+                <div class="search">
+                    <input id="search" placeholder="Cari kue anda...">
+                    <i class="fa fa-search">🔍</i>
+                </div>
+                <button class="button-cart" id="cart">
+                    <i class="bag-shop">🛒</i>
+                    <div class="icon" id="jumlahCart">0</div>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="intro">
+            <div class="intro-left">
+                <h2>Selamat datang di Toko Kue Rejaki - Toko kue mewah dengan tampilan lucu</h2>
+                <p>
+                    Kami adalah toko kue lokal yang menghadirkan cita rasa manis, gurih, dan lembut dalam setiap gigitan.  
+                    Kue kami dibuat dari bahan-bahan pilihan dengan sentuhan kasih sayang.  
+                    Nikmati berbagai varian kue tradisional dan modern yang siap memanjakan lidah Anda!
+                </p>
+                <div class="row2">
+                    <button class="primary" id="shopNow">Belanja Sekarang</button>
+                </div>
+            </div>
+            <div class="intro-right">
+                <div class="cake-card">
+                    <div class="cake-ill">🎂
+                        <span style="font-size: 12px; margin-left: 8px;">Toko Kue Rejaki</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="categories">
+            <h2> Pilih Kategori Favoritmu</h2>
+            <div class="category-list">
+                <a href="" class="category-card">
+                🎂 <span>Kue Ulang Tahun</span>
+                </a>
+                <a href="" class="category-card">
+                🍪 <span>Kue Kering</span>
+                </a>
+                <a href="" class="category-card">
+                🧁 <span>Cupcake</span>
+                </a>
+                <a href="" class="category-card">
+                🍮 <span>Puding</span>
+                </a>
+                <a href="" class="category-card">
+                🍰 <span>Tart Mini</span>
+                </a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
